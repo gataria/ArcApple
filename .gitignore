@@ -1,0 +1,5 @@
+# do not include work files
+files/
+arcgis/
+# do not include pycharm files
+.idea/
