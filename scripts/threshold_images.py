@@ -1,4 +1,5 @@
 # A quick script for converting a folder of greyscale images to binary images, using the simple binary threshold method found in the OpenCV python library.
+# Adapted from the Image Thresholding tutorial script on the OpenCV docs: https://docs.opencv.org/4.x/d7/d4d/tutorial_py_thresholding.html
 import cv2 as cv
 import sys
 from pathlib import Path
