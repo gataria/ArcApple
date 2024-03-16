@@ -25,4 +25,10 @@ A project for coloring an ArcGIS feature layer based on a raster layer.
    4. This world file was then duplicated for the entire Bad Apple!! frame dataset (i.e., that text was written out to files with `bad_apple_(X)XXX.pngw` filenames).
       1. This was performed using the Python script `write_world_files.py`, found under `scripts/`.
 3. Use a strategy such as creating a [tile index](https://gis.stackexchange.com/questions/229133/how-to-select-the-polygons-based-on-a-raster) to select and color specific polygons by location/overlap with the tiles.
-   1. We could use the "Raster to Vector" geoprocessing tool -- however, we need to prepare the images first.
+   1. We could use the "Raster to Polygon" geoprocessing tool -- however, we need to prepare the images first.
+      1. The best method we can use here is to convert the image to a binary image -- keeping the antialiasing on here can lead to a really messy polygon output.
+      ![A messy polygon layer, converted from an anti-aliased raster image.](img/bad_polygon.png)
+      2. This can be done using the simple `THRESH_BINARY` threshold [method in the OpenCV Python package.](https://docs.opencv.org/4.x/d7/d4d/tutorial_py_thresholding.html)
+         1. This process was tested at first on one file using `scripts/aliasing.py`, which yielded a phenomenal result.
+         ![A picture of a cleaned-up polygon layer.](img/good_polygon.png)
+      3. As such, this processing was then performed on every single frame of Bad Apple!! using the `scripts/threshold_images.py` Python script.
