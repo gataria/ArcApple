@@ -1,3 +1,4 @@
+# A quick test script for removing antialiasing from a greyscale image by converting it to a binary image with OpenCV
 import cv2 as cv
 
 img = cv.imread(r'C:\Users\rodri\OneDrive\Development\ArcApple\files\bad_apple_is\image_sequence\bad_apple_233.png', cv.IMREAD_GRAYSCALE)
