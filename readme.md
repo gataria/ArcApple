@@ -98,3 +98,10 @@ A project for coloring an ArcGIS feature layer based on a raster layer.
     curLayout = aprx.listLayouts()[0]
     curLayout.exportToPNG("layout.png", resolution=128)
    ```
+   
+# Resumed...
+## Stage 1: Raster to Polygon
+
+## Stage 2: Make those selections, screenshot em maybe?
+
+## If needed: stage 3 is for screenshots
