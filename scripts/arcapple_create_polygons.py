@@ -19,48 +19,6 @@ def process_image(image_file_path):
         create_multipart_features="SINGLE_OUTER_PART",
         max_vertices_per_feature=None
     )
-    # # SelectLayerByLocation to fetch block groups by their proximity to the boundaries in the bad apple polygon
-    # selected_block_groups = arcpy.management.SelectLayerByLocation(
-    #     in_layer="ContiguousUnitedStates",
-    #     overlap_type="WITHIN",
-    #     select_features=out_polygon,
-    #     search_distance=None,
-    #     selection_type="NEW_SELECTION",
-    #     invert_spatial_relationship="NOT_INVERT"
-    # )
-    # # Make a feature layer out of these block groups inside the resulting geodatabase
-    # out_layer = out_polygon + "_selection"
-    # obj_ids = arcpy.Describe(selected_block_groups).FIDSet
-    # obj_ids_sql = "OBJECTID IN ({})".format(obj_ids.replace("; ", ","))
-    # arcpy.management.MakeFeatureLayer(
-    #     in_features=selected_block_groups,
-    #     out_layer=out_layer,
-    #     where_clause=obj_ids_sql
-    # )
-
-    # == WHAT I USED IN TESTING ==
-    # arcpy.management.SelectLayerByAttribute(
-    #     in_layer_or_view="bad_apple_100",
-    #     selection_type="NEW_SELECTION",
-    #     where_clause="gridcode = 0",
-    #     invert_where_clause=None
-    # )
-    # selected_block_groups = arcpy.management.SelectLayerByLocation(
-    #     in_layer="ContiguousUnitedStates",
-    #     overlap_type="HAVE_THEIR_CENTER_IN",
-    #     select_features="bad_apple_100",
-    #     search_distance=None,
-    #     selection_type="NEW_SELECTION",
-    #     invert_spatial_relationship="NOT_INVERT"
-    # )
-    # out_layer = "bad_apple_100" + "_selection"
-    # obj_ids = arcpy.Describe(selected_block_groups).FIDSet
-    # obj_ids_sql = "OBJECTID IN ({})".format(obj_ids.replace("; ", ","))
-    # arcpy.management.MakeFeatureLayer(
-    #     in_features=selected_block_groups,
-    #     out_layer=out_layer,
-    #     where_clause=obj_ids_sql
-    # )
 
 
 if __name__ == '__main__':
