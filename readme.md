@@ -1,6 +1,8 @@
 # ArcApple!!
 A project for coloring an ArcGIS feature layer based on a raster layer.
 All code files are located in the `scripts` folder.
+## [Video](https://www.youtube.com/watch?v=1Z5CZ1YnHH0)
+[![A thumbnail showing the silhouette of a character composed of U.S. Census block groups on the continental United States](img/arcapple-thumbnail.jpg)](https://www.youtube.com/watch?v=1Z5CZ1YnHH0)
 ## Why?
 It's fun! And I think that programming within a number of limitations can work as a great test of one's ability. Having a playground with unlimited resources can be fun and all, but having a set goal in a constrained environment can be where true innovation lies; and while I could have done this far more easily using some After Effects trickery, it's more fun to both work in a constrained environment, where I can show off my skills and hopefully contribute to one of my favorite sides of [online culture](https://en.wikipedia.org/wiki/Bad_Apple!!#Usages_in_meme_culture).
 ## How?
