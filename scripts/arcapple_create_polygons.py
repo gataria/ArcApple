@@ -1,3 +1,5 @@
+# A dedicated script to create polygons out of the Bad Apple!! video's aliased frames, which will then be used in arcapple_create_frames.py to create the ArcApple video frames.
+
 import arcpy
 from pathlib import Path
 
@@ -20,13 +22,11 @@ def process_image(image_file_path):
         max_vertices_per_feature=None
     )
 
-
-if __name__ == '__main__':
-    # get folder of images/world files; define file extension
-    images_folder = Path(r"C:\Users\rodri\OneDrive\Development\ArcApple\files\bad_apple_is\image_sequence\binary")
-    images_file_ext = "png"
-    # construct images list w/ reference to US layer
-    images_file_list = images_folder.glob("*." + images_file_ext)
-    # go through each image -- writing to a fGDB with multiple processes is messy
-    for image in images_file_list:
-        process_image(image)
+# get folder of images/world files; define file extension
+images_folder = Path(r"C:\Users\rodri\OneDrive\Development\ArcApple\files\bad_apple_is\image_sequence\binary")
+images_file_ext = "png"
+# construct images list w/ reference to US layer
+images_file_list = images_folder.glob("*." + images_file_ext)
+# go through each image
+for image in images_file_list:
+    process_image(image)

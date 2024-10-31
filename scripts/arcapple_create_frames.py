@@ -1,3 +1,5 @@
+# A dedicated script to create each frame of the ArcApple video. This uses the frames that were created in the arcapple_create_polygons.py script.
+
 import arcpy
 from pathlib import Path
 import time
@@ -39,7 +41,6 @@ def process_frame(frame):
     # From the shaded areas layer, make a selection on the ContiguousUnitedStates layer
     arcpy.management.SelectLayerByLocation(
         in_layer=cont_us_layer,
-        # overlap_type="WITHIN",
         overlap_type="HAVE_THEIR_CENTER_IN",
         select_features=frame_layer,
         search_distance=None,
@@ -88,36 +89,11 @@ def process_frame(frame):
     arcpy.env.workspace = r"C:\Users\rodri\OneDrive\Development\ArcApple\files\polygon_frames.gdb"
 
 if __name__ == '__main__':
-    # # Get bad apple frames for testing
-    # ba_frame_list = [
-    #                 "bad_apple_100",
-    #                 "bad_apple_101",
-    #                 "bad_apple_102",
-    #                 "bad_apple_103",
-    #                 "bad_apple_104",
-    #                 "bad_apple_105",
-    #                 "bad_apple_106",
-    #                 "bad_apple_107",
-    #                 "bad_apple_108",
-    #                 "bad_apple_109",
-    #                 "bad_apple_110",
-    #                 "bad_apple_111",
-    #                 "bad_apple_112",
-    #                 "bad_apple_113",
-    #                 "bad_apple_114",
-    #                 "bad_apple_115",
-    #                 "bad_apple_116",
-    #                 "bad_apple_117",
-    #                 "bad_apple_118",
-    #                 "bad_apple_119",
-    #                 "bad_apple_120",
-    #             ]
-    # # Get all Bad Apple frames
+    # Get all Bad Apple frames
     ba_frame_list = arcpy.ListFeatureClasses("bad_apple*")
     # Send each frame to process
     start = time.time()
-    # for ba_frame in ba_frame_list:
-    #     create_frame(ba_frame)
+    # run create_frame() once for each process
     with mp.Pool(processes=mp.cpu_count()) as pool:
         pool.map(create_frame, ba_frame_list)
 

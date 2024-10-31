@@ -1,3 +1,6 @@
+# A script to write a set of world files for the continuous United States, using its extent defined by the U.S. Census Bureau's TIGER/LINE shapefiles (https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html)
+# The boundaries specified here exclude the boundaries defined by the U.S.'s waterways, such as the Great Salt Lake.
+
 import os
 import sys
 from pathlib import Path
